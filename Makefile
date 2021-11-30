@@ -11,7 +11,14 @@ CC    = gcc
 
 RM    = rm -f
 
-SRC    = myhunter.c			\
+SRC    = myhunter.c				\
+		 duck.c					\
+		 duck_fall.c			\
+		 dog.c					\
+		 dog2.c					\
+		 dog3.c					\
+		 systemhunter.c			\
+		 setstructurehunter.c 	\
 
 OBJ    = $(SRC:.c=.o)
 
