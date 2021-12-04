@@ -16,7 +16,7 @@ void mouvementdog2(sfVector2f *positiondog)
     if (positiondog->x < 160) {
         positiondog->x += 20;
         positiondog->y += -80;
-    } 
+    }
     if (positiondog->x >= 160) {
         positiondog->x += 20;
         positiondog->y += 80;
@@ -44,7 +44,7 @@ void clock_dog2(sfClock *clock, sfIntRect *rect, sfVector2f *positiondog)
 int start_animation_dog2(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     sfVector2f resize = {3, 3};
-    sfTexture* texture_basicdog = sfTexture_createFromFile("./images/DuckHunt/DogsJump.png", NULL);
+    sfTexture* texture_basicdog = sfTexture_createFromFile("./images/DogsJump.png", NULL);
     sfSprite* sprite_basicdog = sfSprite_create();
     sfClock *clock = sfClock_create();
     sfClock *clock2 = sfClock_create();

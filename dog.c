@@ -41,7 +41,7 @@ void clock_dog(sfClock *clock, sfIntRect *rect, sfVector2f *positiondog)
 int start_animation_dog(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     sfVector2f resize = {3, 3};
-    sfTexture* texture_basicdog = sfTexture_createFromFile("./images/DuckHunt/DogsWalk.png", NULL);
+    sfTexture* texture_basicdog = sfTexture_createFromFile("./images/DogsWalk.png", NULL);
     sfSprite* sprite_basicdog = sfSprite_create();
     sfClock *clock = sfClock_create();
     sfClock *clock2 = sfClock_create();

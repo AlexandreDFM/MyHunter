@@ -19,10 +19,11 @@ SRC    = myhunter.c				\
 		 dog3.c					\
 		 systemhunter.c			\
 		 setstructurehunter.c 	\
+		 destroystructure.c		\
 
 OBJ    = $(SRC:.c=.o)
 
-LIBFLAG    = -L ./lib/my/ -lmy -I ./include -g3 -lcsfml-graphics -lcsfml-window -lcsfml-system
+LIBFLAG    = -L ./lib/my/ -lmy -I ./include -g3 -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio
 
 all: $(NAME)
 

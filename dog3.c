@@ -24,7 +24,6 @@ void mouvementdog3(sfVector2f *positiondog, myhunter_t *hunter)
 void clock_dog3(sfClock *clock, sfIntRect *rect, sfVector2f *positiondog, myhunter_t *hunter)
 {
     if (sfClock_getElapsedTime(clock).microseconds > 100000.0) {
-        //move_rectdog3(rect, 0, 46);
         mouvementdog3(positiondog, hunter);
         sfClock_restart(clock);
     }
@@ -34,7 +33,8 @@ int start_animation_dog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *s
 {
     hunter->mouvementdogwin = 0;
     sfVector2f resize = {3, 3};
-    sfTexture* texture_windog = sfTexture_createFromFile("./images/DuckHunt/DogsCatch.png", NULL);
+    sfTexture* texture_windog =
+    sfTexture_createFromFile("./images/DogsCatch.png", NULL);
     sfSprite* sprite_windog = sfSprite_create();
     sfClock *clock = sfClock_create();
     sfClock *clock2 = sfClock_create();
