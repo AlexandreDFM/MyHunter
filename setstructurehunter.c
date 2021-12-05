@@ -90,7 +90,7 @@ void set_struct(myhunter_t *hunter, sprite_t *sprite)
     set_struct5(hunter, sprite);
     set_struct_decor_menus(hunter, sprite);
     set_struct_ducks(hunter, sprite);
-    hunter->music = sfMusic_createFromFile("./sounds/MenuMusic.ogg");
-    hunter->shot = sfMusic_createFromFile("./sounds/SoundShot.ogg");
-    hunter->winshot = sfMusic_createFromFile("./sounds/SuccessShot.ogg");
+    hunter->music = sfMusic_createFromFile("./sounds/menu_music.ogg");
+    hunter->shot = sfMusic_createFromFile("./sounds/sound_shot.ogg");
+    hunter->winshot = sfMusic_createFromFile("./sounds/success_shot.ogg");
 }

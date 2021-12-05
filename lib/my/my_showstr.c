@@ -19,6 +19,13 @@ int my_putnbr_base(int nbr, char *base)
     return (nbr);
 }
 
+int check_ascii(char *str, int i)
+{
+    if (str[i] < 14) {
+        my_putchar('0');
+    }
+}
+
 int my_showstr(char *str)
 {
     int i;
@@ -26,9 +33,7 @@ int my_showstr(char *str)
     while (str[i]) {
         if (str[i] < 32 || str[i] > 126) {
             my_putchar('\\');
-            if (str[i] < 14) {
-                my_putchar('0');
-            }
+            check_ascii(str, i);
             my_putnbr_base((str[i]), "0123456789abcdef");
         } else {
             my_putchar(str[i]);
