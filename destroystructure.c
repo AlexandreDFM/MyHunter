@@ -12,38 +12,38 @@
 #include <SFML/Audio.h>
 #include <stdlib.h>
 
-void destroy_struct_decor_menus(myhunter_t *hunter, sprite_t *sprites)
+void destroy_struct_decor_menus(myhunter_t *hunter, sprite_t *sprite)
 {
-    sfTexture_destroy(sprites->t_title);
-    sfSprite_destroy(sprites->s_title);
-    sfTexture_destroy(sprites->t_bmenu);
-    sfSprite_destroy(sprites->s_bmenu);
-    sfTexture_destroy(sprites->t_boutonplay);
-    sfSprite_destroy(sprites->s_boutonplay);
-    sfTexture_destroy(sprites->t_boutonquit);
-    sfSprite_destroy(sprites->s_boutonquit);
-    sfTexture_destroy(sprites->t_b1);
-    sfSprite_destroy(sprites->s_b1);
-    sfTexture_destroy(sprites->t_b2);
-    sfSprite_destroy(sprites->s_b2);
+    sfTexture_destroy(sprite->t_title);
+    sfSprite_destroy(sprite->s_title);
+    sfTexture_destroy(sprite->t_bmenu);
+    sfSprite_destroy(sprite->s_bmenu);
+    sfTexture_destroy(sprite->t_boutonplay);
+    sfSprite_destroy(sprite->s_boutonplay);
+    sfTexture_destroy(sprite->t_boutonquit);
+    sfSprite_destroy(sprite->s_boutonquit);
+    sfTexture_destroy(sprite->t_b1);
+    sfSprite_destroy(sprite->s_b1);
+    sfTexture_destroy(sprite->t_b2);
+    sfSprite_destroy(sprite->s_b2);
 }
 
-void destroy_struct_animation(myhunter_t *hunter, sprite_t *sprites)
+void destroy_struct_animation(myhunter_t *hunter, sprite_t *sprite)
 {
-    sfTexture_destroy(sprites->t_basicduck);
-    sfSprite_destroy(sprites->s_basicduck);
-    sfTexture_destroy(sprites->t_fallduck);
-    sfSprite_destroy(sprites->s_fallduck);
-    sfTexture_destroy(sprites->t_cursor);
-    sfSprite_destroy(sprites->s_cursor);
+    sfTexture_destroy(sprite->t_basicduck);
+    sfSprite_destroy(sprite->s_basicduck);
+    sfTexture_destroy(sprite->t_fallduck);
+    sfSprite_destroy(sprite->s_fallduck);
+    sfTexture_destroy(sprite->t_cursor);
+    sfSprite_destroy(sprite->s_cursor);
 }
 
-void destroy_struct(myhunter_t *hunter, sprite_t *sprites)
+void destroy_struct(myhunter_t *hunter, sprite_t *sprite)
 {
     sfClock_destroy(hunter->clock);
-    destroy_struct_decor_menus(hunter, sprites);
-    destroy_struct_animation(hunter, sprites);
+    destroy_struct_decor_menus(hunter, sprite);
+    destroy_struct_animation(hunter, sprite);
     sfMusic_destroy(hunter->shot);
     sfMusic_destroy(hunter->winshot);
-    free(sprites);
+    free(sprite);
 }

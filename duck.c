@@ -12,10 +12,10 @@
 #include <SFML/Audio.h>
 #include <stdlib.h>
 
-void check_cduck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+void check_cduck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
-    sfFloatRect posduck = {sfSprite_getPosition(sprites->s_basicduck).x,
-    sfSprite_getPosition(sprites->s_basicduck).y, 105, 117};
+    sfFloatRect posduck = {sfSprite_getPosition(sprite->s_basicduck).x,
+    sfSprite_getPosition(sprite->s_basicduck).y, 105, 117};
     float posmousex = sfMouse_getPositionRenderWindow(window).x;
     float posmousey = sfMouse_getPositionRenderWindow(window).y;
     hunter->duckonmouse = sfFloatRect_contains(&posduck, posmousex, posmousey);
@@ -55,11 +55,11 @@ void mouvementduck(sfVector2f *positionduck, myhunter_t *hunter)
         positionduck->y = -41;
 }
 
-int display_duck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+int display_duck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfVector2f resize = {3, 3};
-    sfVector2f coord = sfSprite_getPosition(sprites->s_cursor);
-    check_cduck(window, hunter, sprites);
+    sfVector2f coord = sfSprite_getPosition(sprite->s_cursor);
+    check_cduck(window, hunter, sprite);
     if (hunter->duckonmouse == 1 && 
     hunter->event.type == sfEvtMouseButtonPressed && hunter->play == 1) {
         hunter->scorenb += 100;
@@ -68,14 +68,14 @@ int display_duck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
         hunter->rectshot2.width = 26;
         changehit(hunter);
         play_sound(hunter);
-        start_fduck(window, hunter, sprites);
-        start_adog3(window, hunter, sprites);
+        start_fduck(window, hunter, sprite);
+        start_adog3(window, hunter, sprite);
         hunter->positionduck.x = -68;
         hunter->positionduck.y = rand() % 301;
     }
-    sfSprite_setTexture(sprites->s_basicduck, sprites->t_basicduck, sfTrue);
-    sfSprite_setTextureRect(sprites->s_basicduck, hunter->rectduck);
-    sfSprite_setPosition(sprites->s_basicduck, hunter->positionduck);
-    sfSprite_setScale(sprites->s_basicduck, resize);
-    sfRenderWindow_drawSprite(window, sprites->s_basicduck, NULL);
+    sfSprite_setTexture(sprite->s_basicduck, sprite->t_basicduck, sfTrue);
+    sfSprite_setTextureRect(sprite->s_basicduck, hunter->rectduck);
+    sfSprite_setPosition(sprite->s_basicduck, hunter->positionduck);
+    sfSprite_setScale(sprite->s_basicduck, resize);
+    sfRenderWindow_drawSprite(window, sprite->s_basicduck, NULL);
 }

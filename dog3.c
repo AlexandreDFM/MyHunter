@@ -29,7 +29,7 @@ void clock_dog3(sfClock *clock, sfIntRect *rect, myhunter_t *hunter)
     }
 }
 
-int start_adog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+int start_adog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     hunter->mouvementdogwin = 0;
     sfVector2f resize = {3, 3};
@@ -40,13 +40,13 @@ int start_adog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     hunter->positiondogwin = positiondogwin;
     while ((int)hunter->positiondogwin.y <= 400) {
         clock_dog3(clock, &rectdog, hunter);
-        display_b(window, hunter, sprites);
-        sfSprite_setTexture(sprites->s_windog, sprites->t_windog, sfTrue);
-        sfSprite_setTextureRect(sprites->s_windog, rectdog);
-        sfSprite_setPosition(sprites->s_windog, hunter->positiondogwin);
-        sfSprite_setScale(sprites->s_windog, resize);
-        sfRenderWindow_drawSprite(window, sprites->s_windog, NULL);
-        display_b2(window, hunter, sprites);
+        display_b(window, hunter, sprite);
+        sfSprite_setTexture(sprite->s_windog, sprite->t_windog, sfTrue);
+        sfSprite_setTextureRect(sprite->s_windog, rectdog);
+        sfSprite_setPosition(sprite->s_windog, hunter->positiondogwin);
+        sfSprite_setScale(sprite->s_windog, resize);
+        sfRenderWindow_drawSprite(window, sprite->s_windog, NULL);
+        display_b2(window, hunter, sprite);
         sfRenderWindow_display(window);
     }
 }

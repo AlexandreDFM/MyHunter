@@ -92,32 +92,32 @@ typedef struct sprite
 #ifndef MY_HUNTER
     #define MY_HUNTER
 
-void set_struct(myhunter_t *hunter, sprite_t *sprites);
-void start_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-void pause_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-void check_mouse(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-void play_bouton(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-void quit_bouton(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-int display_s(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-int display_rnd(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-int display_b(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-int display_b2(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
+void set_struct(myhunter_t *hunter, sprite_t *sprite);
+void start_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+void pause_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+void check_mouse(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+void play_bouton(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+void quit_bouton(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+int display_s(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+int display_rnd(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+int display_b(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+int display_b2(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
 void move_rect(sfIntRect *rect, int offset, int max_value);
 void clock_game(myhunter_t *hunter, sfIntRect *rect, int offset, int max_value);
 void mouvementduck(sfVector2f *positionduck, myhunter_t *hunter);
-int display_duck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-int cursor(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
+int display_duck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+int cursor(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
 int displaywindow(void);
-int start_adog(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-int start_adog2(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-int start_adog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-int start_fduck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-void destroy_struct(myhunter_t *hunter, sprite_t *sprites);
-int check_shot(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
-void set_red_duck(myhunter_t *hunter, sprite_t *sprites);
-void set_blue_duck(myhunter_t *hunter, sprite_t *sprites);
-void set_basic_duck(myhunter_t *hunter, sprite_t *sprites);
-void set_struct4(myhunter_t *hunter, sprite_t *sprites);
-void set_struct5(myhunter_t *hunter, sprite_t *sprites);
+int start_adog(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+int start_adog2(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+int start_adog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+int start_fduck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+void destroy_struct(myhunter_t *hunter, sprite_t *sprite);
+int check_shot(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
+void set_red_duck(myhunter_t *hunter, sprite_t *sprite);
+void set_blue_duck(myhunter_t *hunter, sprite_t *sprite);
+void set_basic_duck(myhunter_t *hunter, sprite_t *sprite);
+void set_struct4(myhunter_t *hunter, sprite_t *sprite);
+void set_struct5(myhunter_t *hunter, sprite_t *sprite);
 
 #endif /* !MY_HUNTER */

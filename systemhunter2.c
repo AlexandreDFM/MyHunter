@@ -12,22 +12,22 @@
 #include <stdlib.h>
 #include <SFML/Audio.h>
 
-void display_p(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+void display_p(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfVector2f resize = {2.9, 2};
-    sfSprite_setTexture(sprites->s_pause, sprites->t_pause, sfTrue);
+    sfSprite_setTexture(sprite->s_pause, sprite->t_pause, sfTrue);
     sfVector2f pauseposition = {328, 100};
-    sfSprite_setPosition(sprites->s_pause, pauseposition);
-    sfSprite_setScale(sprites->s_pause, resize);
-    sfRenderWindow_drawSprite(window, sprites->s_pause, NULL);
+    sfSprite_setPosition(sprite->s_pause, pauseposition);
+    sfSprite_setScale(sprite->s_pause, resize);
+    sfRenderWindow_drawSprite(window, sprite->s_pause, NULL);
 }
 
-void pause_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+void pause_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
-    display_p(window, hunter, sprites);
-    play_bouton(window, hunter, sprites);
-    quit_bouton(window, hunter, sprites);
-    check_mouse(window, hunter, sprites);
+    display_p(window, hunter, sprite);
+    play_bouton(window, hunter, sprite);
+    quit_bouton(window, hunter, sprite);
+    check_mouse(window, hunter, sprite);
     if (hunter->playvalid == 1 && sfMouse_isButtonPressed(sfMouseLeft) ||
      sfKeyboard_isKeyPressed(sfKeySpace)) {
         sfClock *clockwait = sfClock_create();
@@ -60,16 +60,16 @@ void clock_game(myhunter_t *hunter, sfIntRect *rect, int offset, int max_value)
     }
 }
 
-int cursor(sfRenderWindow *window, struct myhunter *hunter, sprite_t *sprites)
+int cursor(sfRenderWindow *window, struct myhunter *hunter, sprite_t *sprite)
 {
     float posx = sfMouse_getPositionRenderWindow(window).x;
     float posy = sfMouse_getPositionRenderWindow(window).y;
     sfVector2f coord = {posx, posy};
     sfVector2f origin = {12, 12};
-    sfSprite_setTexture(sprites->s_cursor, sprites->t_cursor, sfTrue);
-    sfSprite_setOrigin(sprites->s_cursor, origin);
-    sfSprite_setPosition(sprites->s_cursor, coord);
-    sfRenderWindow_drawSprite(window, sprites->s_cursor, NULL);
+    sfSprite_setTexture(sprite->s_cursor, sprite->t_cursor, sfTrue);
+    sfSprite_setOrigin(sprite->s_cursor, origin);
+    sfSprite_setPosition(sprite->s_cursor, coord);
+    sfRenderWindow_drawSprite(window, sprite->s_cursor, NULL);
     if (hunter->play == 1 && sfMouse_isButtonPressed(sfMouseLeft) == 1) {
         if (sfMusic_getStatus(hunter->shot) == 0) {
             sfMusic_stop(hunter->shot);

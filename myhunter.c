@@ -21,37 +21,37 @@ void close_window(sfRenderWindow *window, myhunter_t *hunter, sfEvent event)
         hunter->play = 2;
 }
 
-void launch_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+void launch_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfRenderWindow_setMouseCursorGrabbed(window, sfFalse);
-    start_game(window, hunter, sprites);
-    cursor(window, hunter, sprites);
+    start_game(window, hunter, sprite);
+    cursor(window, hunter, sprite);
 }
 
-void stop_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+void stop_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfRenderWindow_setMouseCursorGrabbed(window, sfFalse);
     sfRenderWindow_clear(window, sfBlack);
-    display_b(window, hunter, sprites);
-    display_duck(window, hunter, sprites);
-    display_b2(window, hunter, sprites);
-    pause_game(window, hunter, sprites);
-    cursor(window, hunter, sprites);
+    display_b(window, hunter, sprite);
+    display_duck(window, hunter, sprite);
+    display_b2(window, hunter, sprite);
+    pause_game(window, hunter, sprite);
+    cursor(window, hunter, sprite);
 }
 
-void game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+void game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfRenderWindow_setMouseCursorGrabbed(window, sfTrue);
     clock_game(hunter, &hunter->rectduck, 0, 105);
     sfRenderWindow_clear(window, sfBlack);
-    display_b(window, hunter, sprites);
-    display_duck(window, hunter, sprites);
-    display_b2(window, hunter, sprites);
-    cursor(window, hunter, sprites);
-    check_shot(window, hunter, sprites);
+    display_b(window, hunter, sprite);
+    display_duck(window, hunter, sprite);
+    display_b2(window, hunter, sprite);
+    cursor(window, hunter, sprite);
+    check_shot(window, hunter, sprite);
 }
 
-void boucle(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+void boucle(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfEvent event;
     while (sfRenderWindow_isOpen(window) && hunter->play < 4) {
@@ -60,13 +60,13 @@ void boucle(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
         }
         if (hunter->play == 0) {
             hunter->event = event;
-            launch_game(window, hunter, sprites);
+            launch_game(window, hunter, sprite);
         } else if (hunter->play == 2) {
             hunter->event = event;
-            stop_game(window, hunter, sprites);
+            stop_game(window, hunter, sprite);
         } else {
             hunter->event = event;
-            game(window, hunter, sprites);
+            game(window, hunter, sprite);
         }
         sfRenderWindow_display(window);
     }
@@ -76,17 +76,17 @@ int display_window(myhunter_t *hunter)
 {
     sfVideoMode mode = {800, 600, 32};
     sfRenderWindow *window;
-    sprite_t *sprites = malloc(sizeof(sprite_t));
-    set_struct(hunter, sprites);
+    sprite_t *sprite = malloc(sizeof(sprite_t));
+    set_struct(hunter, sprite);
     char *name = "MyHunter Project";
     window = sfRenderWindow_create(mode, name, sfResize | sfClose, NULL);
     sfRenderWindow_setFramerateLimit(window, 60);
     sfRenderWindow_setMouseCursorVisible (window, sfFalse);
-    boucle(window, hunter, sprites);
+    boucle(window, hunter, sprite);
     if (window) {
         sfRenderWindow_close(window);
     }
-    destroy_struct(hunter, sprites);
+    destroy_struct(hunter, sprite);
 }
 
 void print_manual(void)

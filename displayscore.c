@@ -66,7 +66,7 @@ char *make_round(myhunter_t *hunter)
     return (nb2);
 }
 
-int display_s(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+int display_s(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfText_setString(hunter->score, make_score(hunter));
     sfText_setFont(hunter->score, hunter->font);
@@ -80,7 +80,7 @@ int display_s(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     sfRenderWindow_drawText(window, hunter->scoretext, NULL);
 }
 
-int display_rnd(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+int display_rnd(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfFont* font = sfFont_createFromFile("./police/8bit.ttf");
     sfText* text = sfText_create();

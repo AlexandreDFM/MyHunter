@@ -12,37 +12,37 @@
 #include <SFML/Audio.h>
 #include <stdlib.h>
 
-void set_red_duck(myhunter_t *hunter, sprite_t *sprites)
+void set_red_duck(myhunter_t *hunter, sprite_t *sprite)
 {
-    sprites->t_basicduck = sfTexture_createFromFile(
+    sprite->t_basicduck = sfTexture_createFromFile(
             "./images/red_ducks.png", NULL);
-    sprites->s_basicduck = sfSprite_create();
-    sprites->t_fallduck = sfTexture_createFromFile(
+    sprite->s_basicduck = sfSprite_create();
+    sprite->t_fallduck = sfTexture_createFromFile(
             "./images/red_duck_fall.png", NULL);
-    sprites->s_fallduck = sfSprite_create();
+    sprite->s_fallduck = sfSprite_create();
 }
 
-void set_blue_duck(myhunter_t *hunter, sprite_t *sprites)
+void set_blue_duck(myhunter_t *hunter, sprite_t *sprite)
 {
-    sprites->t_basicduck = sfTexture_createFromFile(
+    sprite->t_basicduck = sfTexture_createFromFile(
             "./images/blue_ducks.png", NULL);
-        sprites->s_basicduck = sfSprite_create();
-        sprites->t_fallduck = sfTexture_createFromFile(
+        sprite->s_basicduck = sfSprite_create();
+        sprite->t_fallduck = sfTexture_createFromFile(
             "./images/blue_duck_fall.png", NULL);
-        sprites->s_fallduck = sfSprite_create();
+        sprite->s_fallduck = sfSprite_create();
 }
 
-void set_basic_duck(myhunter_t *hunter, sprite_t *sprites)
+void set_basic_duck(myhunter_t *hunter, sprite_t *sprite)
 {
-    sprites->t_basicduck = sfTexture_createFromFile(
+    sprite->t_basicduck = sfTexture_createFromFile(
             "./images/ducks.png", NULL);
-    sprites->s_basicduck = sfSprite_create();
-    sprites->t_fallduck = sfTexture_createFromFile(
+    sprite->s_basicduck = sfSprite_create();
+    sprite->t_fallduck = sfTexture_createFromFile(
             "./images/duck_fall.png", NULL);
-    sprites->s_fallduck = sfSprite_create();
+    sprite->s_fallduck = sfSprite_create();
 }
 
-void set_struct4(myhunter_t *hunter, sprite_t *sprites)
+void set_struct4(myhunter_t *hunter, sprite_t *sprite)
 {
     sfFont* font = sfFont_createFromFile("./police/8bit.ttf");
     hunter->font = font;
@@ -64,7 +64,7 @@ void set_struct4(myhunter_t *hunter, sprite_t *sprites)
     hunter->coordMouse = coordMouse;
 }
 
-void set_struct5(myhunter_t *hunter, sprite_t *sprites)
+void set_struct5(myhunter_t *hunter, sprite_t *sprite)
 {
     sfClock *clock = sfClock_create();
     hunter->clock = clock;

@@ -34,7 +34,7 @@ void clock_duck_fall(sfClock *clock, myhunter_t *hunter)
     }
 }
 
-int start_fduck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+int start_fduck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfVector2f resize = {3, 3};
     sfClock *clock = sfClock_create();
@@ -44,13 +44,13 @@ int start_fduck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     hunter->positionduckfall = positionduckfall;
     while (hunter->positionduckfall.y <= 500) {
         clock_duck_fall(clock, hunter);
-        display_b(window, hunter, sprites);
-        sfSprite_setTexture(sprites->s_fallduck, sprites->t_fallduck, sfTrue);
-        sfSprite_setTextureRect(sprites->s_fallduck, hunter->rectduckfall);
-        sfSprite_setPosition(sprites->s_fallduck, hunter->positionduckfall);
-        sfSprite_setScale(sprites->s_fallduck, resize);
-        sfRenderWindow_drawSprite(window, sprites->s_fallduck, NULL);
-        display_b2(window, hunter, sprites);
+        display_b(window, hunter, sprite);
+        sfSprite_setTexture(sprite->s_fallduck, sprite->t_fallduck, sfTrue);
+        sfSprite_setTextureRect(sprite->s_fallduck, hunter->rectduckfall);
+        sfSprite_setPosition(sprite->s_fallduck, hunter->positionduckfall);
+        sfSprite_setScale(sprite->s_fallduck, resize);
+        sfRenderWindow_drawSprite(window, sprite->s_fallduck, NULL);
+        display_b2(window, hunter, sprite);
         sfRenderWindow_display(window);
     }
     hunter->rectduckfall.left = 0;
