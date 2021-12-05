@@ -46,6 +46,7 @@ void mouvementduck(sfVector2f *positionduck, myhunter_t *hunter)
     if (hunter->nbtouchhit == 10) {
         hunter->nbtouchhit = 0;
         hunter->speeduck += 10;
+        hunter->nbround += 1;
     }
     positionduck->x += hunter->speeduck;
     if (positionduck->x >= 835 || positionduck->x < -68)

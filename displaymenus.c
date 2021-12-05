@@ -19,18 +19,6 @@ int display_b(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     sfRenderWindow_drawSprite(window, sprites->s_b1, NULL);
 }
 
-int display_rnd(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
-{
-    sfFont* font = sfFont_createFromFile("./police/8bit.ttf");
-    sfText* text = sfText_create();
-    sfVector2f position = {78, 482};
-    sfText_setString(text, "R=1");
-    sfText_setFont(text, font);
-    sfText_setCharacterSize(text, 19);
-    sfText_setPosition(text, position);
-    sfRenderWindow_drawText(window, text, NULL);
-}
-
 int display_shot(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     sfVector2f resize = {3.136, 2.5};

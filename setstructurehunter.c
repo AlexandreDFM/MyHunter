@@ -68,6 +68,7 @@ void set_struct(myhunter_t *hunter, sprite_t *sprites)
     int posy = rand() % 301;
     hunter->speeduck = 25;
     hunter->nbhit = 3;
+    hunter->nbround = 1;
     hunter->nbtouchhit = 0;
     hunter->play = 0;
     sfClock *clock = sfClock_create();

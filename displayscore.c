@@ -35,7 +35,7 @@ char *make_score(myhunter_t *hunter)
 {
     char *nb = my_put_nbrstr(hunter->scorenb);
     if (my_strlen(nb) < 6) {
-        char *nb2 = malloc(sizeof(char)*6);
+        char *nb2 = malloc(sizeof(char)*7);
         int i = 0;
         for (; i < my_strlen(nb); i++)
             nb2[i] = nb[i];
@@ -51,6 +51,21 @@ char *make_score(myhunter_t *hunter)
     return (my_revstr(nb));
 }
 
+char *make_round(myhunter_t *hunter)
+{
+    char *nb = my_put_nbrstr(hunter->nbround);
+    my_revstr(nb);
+    char *nb2 = malloc(sizeof(char)* 2 + my_strlen(nb) + 1);
+    char *round = "R=";
+    int i = 0;
+    for (; i < 2; i++)
+        nb2[i] = round[i];
+    for(int counter = 0; i < 2 + my_strlen(nb); i++, counter++)
+        nb2[i] = nb[counter];
+    nb2[i] = '\0';
+    return (nb2);
+}
+
 int display_s(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     sfText_setString(hunter->score, make_score(hunter));
@@ -63,4 +78,16 @@ int display_s(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     sfText_setCharacterSize(hunter->scoretext, 20);
     sfText_setPosition(hunter->scoretext, hunter->positionscoretext);
     sfRenderWindow_drawText(window, hunter->scoretext, NULL);
+}
+
+int display_rnd(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+{
+    sfFont* font = sfFont_createFromFile("./police/8bit.ttf");
+    sfText* text = sfText_create();
+    sfVector2f position = {78, 482};
+    sfText_setString(text, make_round(hunter));
+    sfText_setFont(text, font);
+    sfText_setCharacterSize(text, 19);
+    sfText_setPosition(text, position);
+    sfRenderWindow_drawText(window, text, NULL);
 }

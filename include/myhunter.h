@@ -20,6 +20,7 @@ typedef struct myhunter
     int duckonmouse;
     int speeduck;
     int nbhit;
+    int nbround;
     int nbtouchhit;
     sfEvent event;
     sfFont *font;
@@ -98,6 +99,7 @@ void check_mouse(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
 void play_bouton(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
 void quit_bouton(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
 int display_s(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
+int display_rnd(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
 int display_b(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
 int display_b2(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
 void move_rect(sfIntRect *rect, int offset, int max_value);
