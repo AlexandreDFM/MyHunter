@@ -114,5 +114,10 @@ int start_adog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
 int start_fduck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
 void destroy_struct(myhunter_t *hunter, sprite_t *sprites);
 int check_shot(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites);
+void set_red_duck(myhunter_t *hunter, sprite_t *sprites);
+void set_blue_duck(myhunter_t *hunter, sprite_t *sprites);
+void set_basic_duck(myhunter_t *hunter, sprite_t *sprites);
+void set_struct4(myhunter_t *hunter, sprite_t *sprites);
+void set_struct5(myhunter_t *hunter, sprite_t *sprites);
 
 #endif /* !MY_HUNTER */

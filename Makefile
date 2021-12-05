@@ -20,6 +20,7 @@ SRC    = myhunter.c				\
 		 systemhunter.c			\
 		 systemhunter2.c		\
 		 setstructurehunter.c 	\
+		 setstructurehunter2.c	\
 		 destroystructure.c		\
 		 displaymenus.c			\
 		 displayscore.c			\
