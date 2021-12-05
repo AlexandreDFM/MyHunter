@@ -14,29 +14,29 @@
 
 void set_struct_decor_menus(myhunter_t *hunter, sprite_t *sprites)
 {
-    sprites->t_title = sfTexture_createFromFile("./images/Title.png", NULL);
+    sprites->t_title = sfTexture_createFromFile("./images/title.png", NULL);
     sprites->s_title = sfSprite_create();
-    sprites->t_bmenu = sfTexture_createFromFile("./images/Background_Menu.png", NULL);
+    sprites->t_bmenu = sfTexture_createFromFile("./images/background_menu.png", NULL);
     sprites->s_bmenu = sfSprite_create();
-    sprites->t_pause = sfTexture_createFromFile("./images/Pause.png", NULL);
+    sprites->t_pause = sfTexture_createFromFile("./images/pause.png", NULL);
     sprites->s_pause = sfSprite_create();
-    sprites->t_go = sfTexture_createFromFile("./images/GameOver.png", NULL);
+    sprites->t_go = sfTexture_createFromFile("./images/game_over.png", NULL);
     sprites->s_go = sfSprite_create();
-    sprites->t_boutonplay = sfTexture_createFromFile("./images/Play_Menu.png", NULL);
+    sprites->t_boutonplay = sfTexture_createFromFile("./images/play_menu.png", NULL);
     sprites->s_boutonplay = sfSprite_create();
-    sprites->t_boutonquit = sfTexture_createFromFile("./images/Quit_Menu.png", NULL);
+    sprites->t_boutonquit = sfTexture_createFromFile("./images/quit_menu.png", NULL);
     sprites->s_boutonquit = sfSprite_create();
-    sprites->t_b1 = sfTexture_createFromFile("./images/Background.png", NULL);
+    sprites->t_b1 = sfTexture_createFromFile("./images/background.png", NULL);
     sprites->s_b1 = sfSprite_create();
-    sprites->t_b2 = sfTexture_createFromFile("./images/First Plan.png", NULL);
+    sprites->t_b2 = sfTexture_createFromFile("./images/first_plan.png", NULL);
     sprites->s_b2 = sfSprite_create();
-    sprites->t_shot = sfTexture_createFromFile("./images/Shots.png", NULL);
+    sprites->t_shot = sfTexture_createFromFile("./images/shots.png", NULL);
     sprites->s_shot = sfSprite_create();
-    sprites->t_shot2 = sfTexture_createFromFile("./images/Shots.png", NULL);
+    sprites->t_shot2 = sfTexture_createFromFile("./images/shots.png", NULL);
     sprites->s_shot2 = sfSprite_create();
-    sprites->t_hit = sfTexture_createFromFile("./images/HitCounter.png", NULL);
+    sprites->t_hit = sfTexture_createFromFile("./images/hit_counter.png", NULL);
     sprites->s_hit = sfSprite_create();
-    sprites->t_hit2 = sfTexture_createFromFile("./images/HitCounter.png", NULL);
+    sprites->t_hit2 = sfTexture_createFromFile("./images/hit_counter.png", NULL);
     sprites->s_hit2 = sfSprite_create();
 }
 
@@ -44,22 +44,22 @@ void set_struct_animation(myhunter_t *hunter, sprite_t *sprites)
 {
     int color = rand() % 9000;
     if (color <= 3000) {
-        sprites->t_basicduck = sfTexture_createFromFile("./images/RedDucks.png", NULL);
+        sprites->t_basicduck = sfTexture_createFromFile("./images/red_ducks.png", NULL);
         sprites->s_basicduck = sfSprite_create();
-        sprites->t_fallduck = sfTexture_createFromFile("./images/RedDuckFall.png", NULL);
+        sprites->t_fallduck = sfTexture_createFromFile("./images/red_duck_fall.png", NULL);
         sprites->s_fallduck = sfSprite_create();
     } else if (color <= 6000) {
-        sprites->t_basicduck = sfTexture_createFromFile("./images/BlueDucks.png", NULL);
+        sprites->t_basicduck = sfTexture_createFromFile("./images/blue_ducks.png", NULL);
         sprites->s_basicduck = sfSprite_create();
-        sprites->t_fallduck = sfTexture_createFromFile("./images/BlueDuckFall.png", NULL);
+        sprites->t_fallduck = sfTexture_createFromFile("./images/blue_duck_fall.png", NULL);
         sprites->s_fallduck = sfSprite_create();
     } else {
-        sprites->t_basicduck = sfTexture_createFromFile("./images/Ducks.png", NULL);
+        sprites->t_basicduck = sfTexture_createFromFile("./images/ducks.png", NULL);
         sprites->s_basicduck = sfSprite_create();
-        sprites->t_fallduck = sfTexture_createFromFile("./images/DuckFall.png", NULL);
+        sprites->t_fallduck = sfTexture_createFromFile("./images/duck_fall.png", NULL);
         sprites->s_fallduck = sfSprite_create();
     }
-    sprites->t_cursor = sfTexture_createFromFile("./images/Cursor.png", NULL);
+    sprites->t_cursor = sfTexture_createFromFile("./images/cursor.png", NULL);
     sprites->s_cursor = sfSprite_create();
 }
 
@@ -108,10 +108,12 @@ void set_struct(myhunter_t *hunter, sprite_t *sprites)
     hunter->coordMouse = coordMouse;
     set_struct_decor_menus(hunter, sprites);
     set_struct_animation(hunter, sprites);
-    sprites->t_basicdog = sfTexture_createFromFile("./images/DogsWalk.png", NULL);
+    sprites->t_basicdog = sfTexture_createFromFile("./images/dogs_walk.png", NULL);
     sprites->s_basicdog = sfSprite_create();
-    sprites->t_jumpdog = sfTexture_createFromFile("./images/DogsJump.png", NULL);
+    sprites->t_jumpdog = sfTexture_createFromFile("./images/dogs_jump.png", NULL);
     sprites->s_jumpdog = sfSprite_create();
+    sprites->t_windog = sfTexture_createFromFile("./images/dogs_catch.png", NULL);
+    sprites->s_windog = sfSprite_create();
     hunter->music = sfMusic_createFromFile("./sounds/MenuMusic.ogg");
     hunter->shot = sfMusic_createFromFile("./sounds/SoundShot.ogg");
     hunter->winshot = sfMusic_createFromFile("./sounds/SuccessShot.ogg");

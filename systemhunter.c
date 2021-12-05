@@ -40,7 +40,22 @@ void quit_bouton(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     sfRenderWindow_drawSprite(window, sprites->s_boutonquit, NULL);
 }
 
-void start_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites, sfEvent event)
+void check_valid(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+{
+    if (hunter->playvalid == 1 && sfMouse_isButtonPressed(sfMouseLeft)) {
+        hunter->play = 1;
+        hunter->musicplayed = 0;
+        sfMusic_destroy(hunter->music);
+        start_adog(window, hunter, sprites);
+        start_adog2(window, hunter, sprites);
+    }
+    else if (hunter->quitvalid == 1 && sfMouse_isButtonPressed(sfMouseLeft)) {
+        sfMusic_destroy(hunter->music);
+        sfRenderWindow_close(window);
+    }
+}
+
+void start_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     if (sfMusic_getStatus(hunter->music) == 0) {
         sfMusic_play(hunter->music);
@@ -57,14 +72,5 @@ void start_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites, s
     play_bouton(window, hunter, sprites);
     quit_bouton(window, hunter, sprites);
     check_mouse(window, hunter, sprites);
-    if (hunter->playvalid == 1 && event.type == sfEvtMouseButtonPressed) {
-        hunter->play = 1;
-        hunter->musicplayed = 0;
-        sfMusic_destroy(hunter->music);
-        start_adog(window, hunter, sprites);
-        start_adog2(window, hunter, sprites);
-    } else if (hunter->quitvalid == 1 && event.type == sfEvtMouseButtonPressed) {
-        sfMusic_destroy(hunter->music);
-        sfRenderWindow_close(window);
-    }
+    check_valid(window, hunter, sprites);
 }

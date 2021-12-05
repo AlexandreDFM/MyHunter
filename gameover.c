@@ -36,7 +36,7 @@ int check_shot(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
         display_duck(window, hunter, sprites);
         display_b2(window, hunter, sprites);
         display_go(window, hunter, sprites);
-        cursor(window, hunter, sprites, hunter->event);
+        cursor(window, hunter, sprites);
         sfRenderWindow_display(window);
         if (sfKeyboard_isKeyPressed(sfKeyR) == 1) {
             hunter->play = 4;

@@ -22,18 +22,19 @@ void display_p(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     sfRenderWindow_drawSprite(window, sprites->s_pause, NULL);
 }
 
-void pause_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites, sfEvent event)
+void pause_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     display_p(window, hunter, sprites);
     play_bouton(window, hunter, sprites);
     quit_bouton(window, hunter, sprites);
     check_mouse(window, hunter, sprites);
-    if (hunter->playvalid == 1 && event.type == sfEvtMouseButtonPressed ||
+    if (hunter->playvalid == 1 && sfMouse_isButtonPressed(sfMouseLeft) ||
      sfKeyboard_isKeyPressed(sfKeySpace)) {
         sfClock *clockwait = sfClock_create();
         while (sfClock_getElapsedTime(clockwait).microseconds < 200000.0);
         hunter->play = 1;
-    } else if (hunter->quitvalid == 1 && event.type == sfEvtMouseButtonPressed) {
+    }
+    else if (hunter->quitvalid == 1 && sfMouse_isButtonPressed(sfMouseLeft)) {
         sfRenderWindow_close(window);
     }
 }
@@ -59,7 +60,7 @@ void clock_game(myhunter_t *hunter, sfIntRect *rect, int offset, int max_value)
     }
 }
 
-int cursor(sfRenderWindow *window, struct myhunter *hunter, sprite_t *sprites, sfEvent event)
+int cursor(sfRenderWindow *window, struct myhunter *hunter, sprite_t *sprites)
 {
     float posx = sfMouse_getPositionRenderWindow(window).x;
     float posy = sfMouse_getPositionRenderWindow(window).y;

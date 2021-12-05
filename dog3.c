@@ -33,9 +33,6 @@ int start_adog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     hunter->mouvementdogwin = 0;
     sfVector2f resize = {3, 3};
-    sfTexture* texture_windog =
-    sfTexture_createFromFile("./images/DogsCatch.png", NULL);
-    sfSprite* sprite_windog = sfSprite_create();
     sfClock *clock = sfClock_create();
     sfClock *clock2 = sfClock_create();
     sfIntRect rectdog = {0, 0, 49, 48};
@@ -44,11 +41,11 @@ int start_adog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     while ((int)hunter->positiondogwin.y <= 400) {
         clock_dog3(clock, &rectdog, hunter);
         display_b(window, hunter, sprites);
-        sfSprite_setTexture(sprite_windog, texture_windog, sfTrue);
-        sfSprite_setTextureRect(sprite_windog, rectdog);
-        sfSprite_setPosition(sprite_windog, hunter->positiondogwin);
-        sfSprite_setScale(sprite_windog, resize);
-        sfRenderWindow_drawSprite(window, sprite_windog, NULL);
+        sfSprite_setTexture(sprites->s_windog, sprites->t_windog, sfTrue);
+        sfSprite_setTextureRect(sprites->s_windog, rectdog);
+        sfSprite_setPosition(sprites->s_windog, hunter->positiondogwin);
+        sfSprite_setScale(sprites->s_windog, resize);
+        sfRenderWindow_drawSprite(window, sprites->s_windog, NULL);
         display_b2(window, hunter, sprites);
         sfRenderWindow_display(window);
     }

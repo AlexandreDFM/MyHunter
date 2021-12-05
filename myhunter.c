@@ -24,8 +24,8 @@ void close_window(sfRenderWindow *window, myhunter_t *hunter, sfEvent event)
 void launch_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     sfRenderWindow_setMouseCursorGrabbed(window, sfFalse);
-    start_game(window, hunter, sprites, hunter->event);
-    cursor(window, hunter, sprites, hunter->event);
+    start_game(window, hunter, sprites);
+    cursor(window, hunter, sprites);
 }
 
 void stop_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
@@ -35,8 +35,8 @@ void stop_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     display_b(window, hunter, sprites);
     display_duck(window, hunter, sprites);
     display_b2(window, hunter, sprites);
-    pause_game(window, hunter, sprites, hunter->event);
-    cursor(window, hunter, sprites, hunter->event);
+    pause_game(window, hunter, sprites);
+    cursor(window, hunter, sprites);
 }
 
 void game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
@@ -47,7 +47,7 @@ void game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
     display_b(window, hunter, sprites);
     display_duck(window, hunter, sprites);
     display_b2(window, hunter, sprites);
-    cursor(window, hunter, sprites, hunter->event);
+    cursor(window, hunter, sprites);
     check_shot(window, hunter, sprites);
 }
 
