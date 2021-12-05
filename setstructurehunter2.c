@@ -44,7 +44,7 @@ void set_basic_duck(myhunter_t *hunter, sprite_t *sprite)
 
 void set_struct4(myhunter_t *hunter, sprite_t *sprite)
 {
-    sfFont* font = sfFont_createFromFile("./police/8bit.ttf");
+    sfFont* font = sfFont_createFromFile("./police/police_8bit.ttf");
     hunter->font = font;
     sfIntRect recthit = {0, 0, 113, 18};
     hunter->recthit = recthit;

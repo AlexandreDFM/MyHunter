@@ -12,6 +12,7 @@ CC    = gcc
 RM    = rm -f
 
 SRC    = myhunter.c				\
+		 myhunter2.c			\
 		 duck.c					\
 		 duck_fall.c			\
 		 dog.c					\

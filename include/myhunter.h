@@ -93,6 +93,7 @@ typedef struct sprite
     #define MY_HUNTER
 
 void set_struct(myhunter_t *hunter, sprite_t *sprite);
+void boucle(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
 void start_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
 void pause_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
 void check_mouse(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);

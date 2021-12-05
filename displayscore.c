@@ -82,11 +82,10 @@ int display_s(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 
 int display_rnd(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
-    sfFont* font = sfFont_createFromFile("./police/8bit.ttf");
     sfText* text = sfText_create();
     sfVector2f position = {78, 482};
     sfText_setString(text, make_round(hunter));
-    sfText_setFont(text, font);
+    sfText_setFont(text, hunter->font);
     sfText_setCharacterSize(text, 19);
     sfText_setPosition(text, position);
     sfRenderWindow_drawText(window, text, NULL);
