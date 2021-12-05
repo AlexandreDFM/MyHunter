@@ -11,35 +11,17 @@
 
 typedef struct myhunter
 {
-    int play;
-    int musicplayed;
-    int mouvementdogwin;
-    int scorenb;
-    int playvalid;
-    int quitvalid;
-    int duckonmouse;
-    int speeduck;
-    int nbhit;
-    int nbround;
-    int nbtouchhit;
+    int play, musicplayed, mouvementdogwin, scorenb, playvalid, quitvalid,
+    duckonmouse, speeduck, nbhit, nbround, nbtouchhit;
     sfEvent event;
     sfFont *font;
     sfText* score;
     sfText* scoretext;
-    sfVector2f positionscore;
-    sfVector2f positionscoretext;
+    sfVector2f positionscore, positionscoretext;
     sfClock *clock;
-    sfIntRect rectback;
-    sfIntRect rectshot;
-    sfIntRect rectshot2;
-    sfIntRect recthit;
-    sfIntRect recthit2;
-    sfIntRect rectduck;
-    sfIntRect rectduckfall;
-    sfVector2f positionduck;
-    sfVector2f positionduckfall;
-    sfVector2f positiondogwin;
-    sfVector2f positionshot;
+    sfIntRect rectback, rectshot, rectshot2, recthit, recthit2, rectduck,
+    rectduckfall;
+    sfVector2f positionduck, positionduckfall, positiondogwin, positionshot;
     sfVector2f positionhit;
     sfVector2f coordMouse;
     sfMusic *music;
