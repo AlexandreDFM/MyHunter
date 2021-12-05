@@ -18,8 +18,12 @@ SRC    = myhunter.c				\
 		 dog2.c					\
 		 dog3.c					\
 		 systemhunter.c			\
+		 systemhunter2.c		\
 		 setstructurehunter.c 	\
 		 destroystructure.c		\
+		 displaymenus.c			\
+		 displayscore.c			\
+		 gameover.c				\
 
 OBJ    = $(SRC:.c=.o)
 

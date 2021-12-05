@@ -11,25 +11,25 @@
 #include <SFML/System.h>
 #include <stdlib.h>
 
-void mouvementdog3(sfVector2f *positiondog, myhunter_t *hunter)
+void mouvementdog3(myhunter_t *hunter)
 {
-    if (positiondog->y >= 300 && hunter->mouvementdogwin == 0) {
-        positiondog->y += -20;
-    } else if (positiondog->y <= 400) {
-        positiondog->y += +20;
+    if (hunter->positiondogwin.y >= 300 && hunter->mouvementdogwin == 0) {
+        hunter->positiondogwin.y += -20;
+    } else if (hunter->positiondogwin.y <= 400) {
+        hunter->positiondogwin.y += +20;
         hunter->mouvementdogwin = 1;
     }
 }
 
-void clock_dog3(sfClock *clock, sfIntRect *rect, sfVector2f *positiondog, myhunter_t *hunter)
+void clock_dog3(sfClock *clock, sfIntRect *rect, myhunter_t *hunter)
 {
     if (sfClock_getElapsedTime(clock).microseconds > 100000.0) {
-        mouvementdog3(positiondog, hunter);
+        mouvementdog3(hunter);
         sfClock_restart(clock);
     }
 }
 
-int start_animation_dog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites, sfVector2f positionduck)
+int start_adog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     hunter->mouvementdogwin = 0;
     sfVector2f resize = {3, 3};
@@ -39,16 +39,17 @@ int start_animation_dog3(sfRenderWindow *window, myhunter_t *hunter, sprite_t *s
     sfClock *clock = sfClock_create();
     sfClock *clock2 = sfClock_create();
     sfIntRect rectdog = {0, 0, 49, 48};
-    sfVector2f positiondog = {positionduck.x, 340};
-    while ((int)positiondog.y <= 400) {
-        clock_dog3(clock, &rectdog, &positiondog, hunter);
-        displaybackground(window, hunter, sprites);
+    sfVector2f positiondogwin = {hunter->positionduck.x, 340};
+    hunter->positiondogwin = positiondogwin;
+    while ((int)hunter->positiondogwin.y <= 400) {
+        clock_dog3(clock, &rectdog, hunter);
+        display_b(window, hunter, sprites);
         sfSprite_setTexture(sprite_windog, texture_windog, sfTrue);
         sfSprite_setTextureRect(sprite_windog, rectdog);
-        sfSprite_setPosition(sprite_windog, positiondog);
+        sfSprite_setPosition(sprite_windog, hunter->positiondogwin);
         sfSprite_setScale(sprite_windog, resize);
         sfRenderWindow_drawSprite(window, sprite_windog, NULL);
-        displaybackground2(window, hunter, sprites);
+        display_b2(window, hunter, sprites);
         sfRenderWindow_display(window);
     }
 }

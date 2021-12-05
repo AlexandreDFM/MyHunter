@@ -41,25 +41,23 @@ void clock_dog2(sfClock *clock, sfIntRect *rect, sfVector2f *positiondog)
     }
 }
 
-int start_animation_dog2(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
+int start_adog2(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprites)
 {
     sfVector2f resize = {3, 3};
-    sfTexture* texture_basicdog = sfTexture_createFromFile("./images/DogsJump.png", NULL);
-    sfSprite* sprite_basicdog = sfSprite_create();
     sfClock *clock = sfClock_create();
     sfClock *clock2 = sfClock_create();
     sfIntRect rectdog = {0, 0, 46, 45};
     sfVector2f positiondog = {120, 330};
     while (positiondog.x <= 220) {
         clock_dog2(clock, &rectdog, &positiondog);
-        displaybackground(window, hunter, sprites);
-        sfSprite_setTexture(sprite_basicdog, texture_basicdog, sfTrue);
-        sfSprite_setTextureRect(sprite_basicdog, rectdog);
-        sfSprite_setPosition(sprite_basicdog, positiondog);
-        sfSprite_setScale(sprite_basicdog, resize);
-        sfRenderWindow_drawSprite(window, sprite_basicdog, NULL);
+        display_b(window, hunter, sprites);
+        sfSprite_setTexture(sprites->s_jumpdog, sprites->t_jumpdog, sfTrue);
+        sfSprite_setTextureRect(sprites->s_jumpdog, rectdog);
+        sfSprite_setPosition(sprites->s_jumpdog, positiondog);
+        sfSprite_setScale(sprites->s_jumpdog, resize);
+        sfRenderWindow_drawSprite(window, sprites->s_jumpdog, NULL);
         if (positiondog.x >= 160)
-            displaybackground2(window, hunter, sprites);
+            display_b2(window, hunter, sprites);
         sfRenderWindow_display(window);
     }
 }
