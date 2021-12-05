@@ -103,7 +103,7 @@ int display_rnd(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
 int display_b(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
 int display_b2(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
 void move_rect(sfIntRect *rect, int offset, int max_value);
-void clock_game(myhunter_t *hunter, sfIntRect *rect, int offset, int max_value);
+void clock_game(myhunter_t *hunter, sfIntRect *rect);
 void mouvementduck(sfVector2f *positionduck, myhunter_t *hunter);
 int display_duck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
 int cursor(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite);
@@ -120,4 +120,4 @@ void set_basic_duck(myhunter_t *hunter, sprite_t *sprite);
 void set_struct4(myhunter_t *hunter, sprite_t *sprite);
 void set_struct5(myhunter_t *hunter, sprite_t *sprite);
 
-#endif /* !MY_HUNTER */
+#endif

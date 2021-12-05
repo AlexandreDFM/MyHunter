@@ -42,7 +42,7 @@ void stop_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 void game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfRenderWindow_setMouseCursorGrabbed(window, sfTrue);
-    clock_game(hunter, &hunter->rectduck, 0, 105);
+    clock_game(hunter, &hunter->rectduck);
     sfRenderWindow_clear(window, sfBlack);
     display_b(window, hunter, sprite);
     display_duck(window, hunter, sprite);
@@ -118,7 +118,7 @@ int main(int argc, char **argv)
     if (argc == 1) {
         srand(time(0));
         display_window(hunter);
-    } else if (argc == 2 && my_strlen(argv[1]) == 2 && argv[1][0] == '-' 
+    } else if (argc == 2 && my_strlen(argv[1]) == 2 && argv[1][0] == '-'
     && argv[1][1] == 'h') {
         print_manual();
     }

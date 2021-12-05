@@ -29,7 +29,7 @@ void pause_game(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
     quit_bouton(window, hunter, sprite);
     check_mouse(window, hunter, sprite);
     if (hunter->playvalid == 1 && sfMouse_isButtonPressed(sfMouseLeft) ||
-     sfKeyboard_isKeyPressed(sfKeySpace)) {
+    sfKeyboard_isKeyPressed(sfKeySpace)) {
         sfClock *clockwait = sfClock_create();
         while (sfClock_getElapsedTime(clockwait).microseconds < 200000.0);
         hunter->play = 1;
@@ -48,7 +48,7 @@ void move_rect(sfIntRect *rect, int offset, int max_value)
     }
 }
 
-void clock_game(myhunter_t *hunter, sfIntRect *rect, int offset, int max_value)
+void clock_game(myhunter_t *hunter, sfIntRect *rect)
 {
     if (sfClock_getElapsedTime(hunter->clock).microseconds > 100000.0) {
         move_rect(rect, 0, 70);

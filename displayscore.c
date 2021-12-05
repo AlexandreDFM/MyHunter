@@ -39,7 +39,7 @@ char *make_score(myhunter_t *hunter)
         int i = 0;
         for (; i < my_strlen(nb); i++)
             nb2[i] = nb[i];
-        for(; i < 6; i++)
+        for (; i < 6; i++)
             nb2[i] = '0';
         nb2[i] = '\0';
         my_revstr(nb2);
@@ -60,7 +60,7 @@ char *make_round(myhunter_t *hunter)
     int i = 0;
     for (; i < 2; i++)
         nb2[i] = round[i];
-    for(int counter = 0; i < 2 + my_strlen(nb); i++, counter++)
+    for (int counter = 0; i < 2 + my_strlen(nb); i++, counter++)
         nb2[i] = nb[counter];
     nb2[i] = '\0';
     return (nb2);

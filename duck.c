@@ -60,7 +60,7 @@ int display_duck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
     sfVector2f resize = {3, 3};
     sfVector2f coord = sfSprite_getPosition(sprite->s_cursor);
     check_cduck(window, hunter, sprite);
-    if (hunter->duckonmouse == 1 && 
+    if (hunter->duckonmouse == 1 &&
     hunter->event.type == sfEvtMouseButtonPressed && hunter->play == 1) {
         hunter->scorenb += 100;
         hunter->nbtouchhit += 1;
