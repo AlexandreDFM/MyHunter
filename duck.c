@@ -49,8 +49,11 @@ void mouvementduck(sfVector2f *positionduck, myhunter_t *hunter)
         hunter->nbround += 1;
     }
     positionduck->x += hunter->speeduck;
-    if (positionduck->x >= 835 || positionduck->x < -68)
+    if (positionduck->x >= 835 || positionduck->x < -68) {
+        hunter->nbhit -= 1;
+        positionduck->y = rand() % 301;
         positionduck->x = -68;
+    }
     if (positionduck->y == 642 || positionduck->y == -42)
         positionduck->y = -41;
 }
@@ -62,16 +65,7 @@ int display_duck(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
     check_cduck(window, hunter, sprite);
     if (hunter->duckonmouse == 1 &&
     hunter->event.type == sfEvtMouseButtonPressed && hunter->play == 1) {
-        hunter->scorenb += 100;
-        hunter->nbtouchhit += 1;
-        hunter->nbhit = 3;
-        hunter->rectshot2.width = 26;
-        changehit(hunter);
-        play_sound(hunter);
-        start_fduck(window, hunter, sprite);
-        start_adog3(window, hunter, sprite);
-        hunter->positionduck.x = -68;
-        hunter->positionduck.y = rand() % 301;
+        reset_duck(window, hunter, sprite);
     }
     sfSprite_setTexture(sprite->s_basicduck, sprite->t_basicduck, sfTrue);
     sfSprite_setTextureRect(sprite->s_basicduck, hunter->rectduck);

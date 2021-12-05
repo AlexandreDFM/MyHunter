@@ -14,6 +14,7 @@ RM    = rm -f
 SRC    = myhunter.c				\
 		 myhunter2.c			\
 		 duck.c					\
+		 duck2.c				\
 		 duck_fall.c			\
 		 dog.c					\
 		 dog2.c					\

@@ -23,6 +23,17 @@ void display_go(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
     sfRenderWindow_drawSprite(window, sprite->s_go, NULL);
 }
 
+void retry_or_close(sfRenderWindow *window, myhunter_t *hunter)
+{
+    if (sfKeyboard_isKeyPressed(sfKeyR) == 1) {
+        hunter->play = 4;
+        hunter->nbhit = 3;
+    } else if (sfKeyboard_isKeyPressed(sfKeyEscape) == 1) {
+        hunter->nbhit = 3;
+        sfRenderWindow_close(window);
+    }
+}
+
 int check_shot(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
 {
     sfClock *goclock = sfClock_create();
@@ -38,10 +49,7 @@ int check_shot(sfRenderWindow *window, myhunter_t *hunter, sprite_t *sprite)
         display_go(window, hunter, sprite);
         cursor(window, hunter, sprite);
         sfRenderWindow_display(window);
-        if (sfKeyboard_isKeyPressed(sfKeyR) == 1) {
-            hunter->play = 4;
-            hunter->nbhit = 3;
-        }
+        retry_or_close(window, hunter);
     }
     sfClock_destroy(goclock);
 }

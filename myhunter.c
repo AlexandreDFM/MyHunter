@@ -48,6 +48,12 @@ void print_manual(void)
     my_putstr("      - Once in game press escape to pause.\n");
     my_putstr("      - If paused press space or click on the play bouton to "
                 "resume, you can also click on the exit bouton to exit.\n");
+    my_putstr("      - If you Game Over you can press R to retry or Escape "
+    "to close.\n");
+}
+
+void print_manual2(void)
+{
     my_putstr("      - Aim by moving your mouse and shoot the ducks with "
                 "your left mouse button.\n\n");
 }
@@ -62,6 +68,7 @@ int main(int argc, char **argv)
     } else if (argc == 2 && my_strlen(argv[1]) == 2 && argv[1][0] == '-'
     && argv[1][1] == 'h') {
         print_manual();
+        print_manual2();
     }
     if (hunter->play == 4) {
         while (hunter->play == 4) {
