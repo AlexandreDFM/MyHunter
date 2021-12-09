@@ -5,7 +5,7 @@
 ## file making
 ##
 
-NAME    = myhunter
+NAME    = my_hunter
 
 CC    = gcc
 
