@@ -5,7 +5,7 @@
 ## file making
 ##
 
-NAME    = myhunter
+NAME    = my_hunter
 
 CC    = gcc
 
@@ -30,7 +30,8 @@ SRC    = myhunter.c				\
 
 OBJ    = $(SRC:.c=.o)
 
-LIBFLAG    = -L ./lib/my/ -lmy -I ./include -g3 -lcsfml-graphics -lcsfml-window -lcsfml-system -lcsfml-audio
+LIBFLAG    = -L ./lib/my/ -lmy -I ./include -g3 -lcsfml-graphics \
+-lcsfml-window -lcsfml-system -lcsfml-audio						 \
 
 all: $(NAME)
 

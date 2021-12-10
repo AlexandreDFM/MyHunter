@@ -60,21 +60,20 @@ void print_manual2(void)
 
 int main(int argc, char **argv)
 {
-    myhunter_t *hunter = malloc(sizeof(myhunter_t));
-    hunter->play = 0;
+    myhunter_t hunter;
+    hunter.play = 0;
     if (argc == 1) {
         srand(time(0));
-        display_window(hunter);
+        display_window(&hunter);
     } else if (argc == 2 && my_strlen(argv[1]) == 2 && argv[1][0] == '-'
     && argv[1][1] == 'h') {
         print_manual();
         print_manual2();
     }
-    if (hunter->play == 4) {
-        while (hunter->play == 4) {
-            display_window(hunter);
+    if (hunter.play == 4) {
+        while (hunter.play == 4) {
+            display_window(&hunter);
         }
     }
-    free(hunter);
     return (0);
 }
